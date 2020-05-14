@@ -92,6 +92,6 @@ export class App implements OnDestroy {
   }
 
   public ngOnDestroy() {
-    this.todos.unsubscribe();
+    // this.todos.unsubscribe();
   }
 }
