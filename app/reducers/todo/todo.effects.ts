@@ -16,11 +16,11 @@ export class TodoEffects {
     .ofType<TodoActions>(TodoActionTypes.AddTodoEffect).pipe(
     mergeMap(action => timer(2000).pipe(
       tap(() => {
-        throw (new Error(`${action.payload.text} failed`))
+        throw (new Error(`${action['payload'].text} failed`))
       }),
-      //map(() => {
-      //return new AddTodo(action.payload);
-      //}),
+      map(() => {
+      return new AddTodo(action.payload);
+      }),
       catchError(error => of(new SetError({ error })))
     ))
    )

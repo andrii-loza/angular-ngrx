@@ -21,7 +21,7 @@ import * as fromFilter from './reducers/filter/filter.actions';
       <ul>
         <li *ngFor="let todo of todos | async | visibleTodos:currentFilter" (click)="onTodoClick(todo.id)"
           [style.textDecoration]="todo.completed?'line-through':'none'">
-          {{todo.text}} <a href="#" (click)="removeTodo(todo.id)">x</a>
+          {{todo.text}} <a href="#" (click)="removeTodo(todo.id)">Remove</a>
         </li>
       </ul>
       <p>Show: 
@@ -91,7 +91,7 @@ export class App implements OnDestroy {
     );
   }
 
-  public ngOnDestroy() {
-    // this.todos.unsubscribe();
+  ngOnDestroy() {
+    
   }
 }
